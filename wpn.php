@@ -67,9 +67,9 @@ class WPN{
         '</tile>';
     }
     
-    public function build_toast_xml($title, $body_text, $img){
+    public function build_toast_xml($title, $body_text, $img, $launch=""){
         return '<?xml version="1.0" encoding="utf-16"?>
-        <toast>
+        <toast launch="'.$launch.'">
             <visual>
                 <binding template="ToastImageAndText02">
                     <image id="1" src="'.$img.'" alt="image1"/>
