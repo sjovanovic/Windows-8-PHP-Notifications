@@ -66,6 +66,19 @@ class WPN{
           '</visual>'.
         '</tile>';
     }
+    
+    public function build_toast_xml($title, $body_text, $img){
+        return '<?xml version="1.0" encoding="utf-16"?>
+        <toast>
+            <visual>
+                <binding template="ToastImageAndText02">
+                    <image id="1" src="'.$img.'" alt="image1"/>
+                    <text id="1">'.$title.'</text>
+                    <text id="2">'.$body_text.'</text>
+                </binding>  
+            </visual>
+        </toast>';
+    }
 
     public function post_tile($uri, $xml_data, $type = WPNTypesEnum::Tile, $tileTag = ''){
         if($this->access_token == ''){
@@ -105,6 +118,10 @@ class WPN{
         else{
             return new WPNResponse('Unknown error while sending message', $code, true);
         }
+    }
+    
+    public function post_toast($uri, $xml_data, $type = WPNTypesEnum::Toast, $tileTag = ''){
+        return $this->post_tile($uri, $xml_data, $type, $tileTag);
     }
 }
 ?>
