@@ -25,7 +25,7 @@ class WPN{
          
     function __construct($sid, $secret){
         $this->sid = $sid;
-        $this->secret = $secret;
+        $this->secret = urlencode($secret);
     }
     
     private function get_access_token(){
@@ -34,6 +34,10 @@ class WPN{
         }
 
         $str = "grant_type=client_credentials&client_id=$this->sid&client_secret=$this->secret&scope=notify.windows.com";
+        
+        echo $str;
+        
+        
         $url = "https://login.live.com/accesstoken.srf";
 
         $ch = curl_init($url);
