@@ -71,6 +71,23 @@ class WPN{
         '</tile>';
     }
     
+    public function build_tile_xml_text($title, $subtitle=""){
+        return '<?xml version="1.0" encoding="utf-16"?>
+          <tile>
+            <visual lang="en-US">
+              <binding template="TileWideText01">
+                <text id="1">'.$title.'</text>
+                <text id="2">'.$subtitle.'</text>
+              </binding> 
+              <binding template="TileSquareText02">
+                <text id="1">'.$title.'</text>
+                <text id="2">'.$subtitle.'</text>
+              </binding>
+            </visual>
+          </tile>';
+    }
+    
+    
     public function build_toast_xml($title, $body_text, $img, $launch=""){
         return '<?xml version="1.0" encoding="utf-16"?>
         <toast launch="'.$launch.'">
